@@ -1,0 +1,33 @@
+Tabla productos--->
+
+codigo producto
+nombreproducto
+proveedor
+fecha vencimiento
+precio unitario
+cantidad
+descripcion
+-------------imagen
+
+
+Tabla ventas--->
+
+codigo venta
+fecha de la venta
+precio de venta
+cantidad
+codigo cliente
+codigo producto
+
+Tabla cliente--->
+
+codigo cliente
+nombre cliente
+apellido paterno
+apellido materno
+ciudad
+direccion
+telefono
+
+
+

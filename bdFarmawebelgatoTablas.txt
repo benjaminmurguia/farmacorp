@@ -1,0 +1,59 @@
+create datebase bdfarmawebelgato
+USE bdfarmawebelgato
+
+CREATE TABLE producto
+(
+  codigoproducto INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nombreproducto Varchar(30) not null,
+  proveedor varchar(30) not null,
+  fechavencimiento date not null,
+  preciounitario int not null,
+  cantidad int not null,
+  descripcion varchar(50) not null,
+  imagen MEDIUMBLOB  
+)
+
+CREATE TABLE cliente
+(
+  codigocliente INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nombrecliente Varchar(30) not null,
+  apellidopaterno Varchar(30) not null,
+  apellidomaterno Varchar(30) not null,
+  ciudad varchar(30) not null,
+  direccion varchar(50) not null,
+  telefono int not null,
+  correoelectronico varchar(50) not null,
+  contrasena  varchar(50) not null
+)
+
+//Crecion del administrador
+insert into cliente (nombrecliente, apellidopaterno, 
+apellidomaterno, ciudad, direccion,telefono,correoelectronico, 
+contrasena) values ('Administrador','Base','Datos','Santa Cruz', 'Upds/LaboratorioB' 
+,123456789, 'administrador@gmail.com','12345');
+
+
+
+CREATE TABLE trabajador
+(
+  codigotrabajador INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nombretrabajador Varchar(30) not null,
+  telefono int not null,
+  ci int not null,
+  correoelectronico varchar(50) not null
+)
+
+
+CREATE TABLE venta
+(
+  codigoventa INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  fechaventa date not null,
+  precioventa int not null,
+  cantidad int not null,
+  codigocliente int not null,
+  codigoproducto int not null,
+  codigotrabajador int not null,
+  FOREIGN KEY (codigocliente) REFERENCES cliente(codigocliente),
+  FOREIGN KEY (codigoproducto) REFERENCES producto(codigoproducto),
+  FOREIGN KEY (codigotrabajador) REFERENCES trabajador(codigotrabajador)
+)
